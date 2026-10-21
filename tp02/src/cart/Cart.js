@@ -52,7 +52,7 @@ class Cart {
     }
     const existing = this.items.find((item) => item.id === id);
     if (existing) {
-      existing.quantity = quantity;
+      existing.quantity += quantity;
     } else {
       this.items.push({ id, name, price, quantity });
     }
@@ -60,7 +60,9 @@ class Cart {
 
   removeItem(id) {
     const index = this.items.findIndex((item) => item.id === id);
-    this.items.splice(index, 1);
+    if(index !== -1){
+      this.items.splice(index, 1);
+    }
   }
 
   getItems() {
