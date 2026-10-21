@@ -52,7 +52,7 @@ class Cart {
     }
     const existing = this.items.find((item) => item.id === id);
     if (existing) {
-      existing.quantity = quantity;
+      existing.quantity += quantity;
     } else {
       this.items.push({ id, name, price, quantity });
     }
